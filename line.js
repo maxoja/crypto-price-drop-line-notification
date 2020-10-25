@@ -9,11 +9,16 @@ const bot = LINEBot.Client({
 
 async function pushMessageToAllUsers(message) {
   const textMessageBuilder = new LINEBot.TextMessageBuilder(message);
-  await bot.pushMessage(process.env.LINE_USER_ID_1, textMessageBuilder);
+  const numUsers = parseInt(process.env.LINE_NUM_USERS)
+  for (let i = 1; i <= numUsers; i++) {
+    const userId = process.env['LINE_USER_ID_' + i]
+    console.log('.. Push message to', userId)
+    await bot.pushMessage(userId, textMessageBuilder)
+  }
 }
 
 if (module === require.main) {
-  pushMessageToAllUsers('hello')
+  pushMessageToAllUsers('hello test')
 }
 
 module.exports = {
