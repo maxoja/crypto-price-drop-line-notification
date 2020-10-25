@@ -1,5 +1,5 @@
 const LINEBot = require('line-messaging')
-require('dotenv').config({ path: require('find-config')('.env') })
+require('dotenv').config({ path: __dirname + '/.env' })
 
 const bot = LINEBot.Client({
   channelID: process.env.LINE_CHANNEL_ID,
