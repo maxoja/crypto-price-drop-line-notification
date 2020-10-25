@@ -19,6 +19,9 @@
   "dependencies": {
     "bitkub": "^1.0.2",
     "coingecko-api": "^1.0.10",
+    "dotenv": "^8.2.0",
+    "find-config": "^1.0.0",
+    "line-messaging": "^1.2.0",
     "technicalindicators": "^3.1.0"
   }
 }
