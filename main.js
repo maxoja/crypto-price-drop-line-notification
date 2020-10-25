@@ -13,7 +13,7 @@ async function main() {
 
     let message = 'Good time to buy\n\n'
     message += `Latest price \n-> ${latest.toFixed(2)} USD\n\n`
-    message += `Percent drop from peak \n-> ${percent.toFixed(1)}%\n\n`
+    message += `Percent drop from peak \n-> ${(percent*100).toFixed(1)}%\n\n`
     message += `RSI-14\n-> ${Math.round(rsi)}`
     await line.pushMessageToAllUsers(message)
   }

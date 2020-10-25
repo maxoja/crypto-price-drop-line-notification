@@ -1,5 +1,5 @@
-const DROP_THRESH = 1.05 //0.95
-const RSI_THRESH = 95 //55
+const DROP_THRESH = 0.96 //0.95
+const RSI_THRESH = 35 //55
 const RSI_PERIOD = 14
 
 const CoinGecko = require('coingecko-api');
