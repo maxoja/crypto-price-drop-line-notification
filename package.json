@@ -1,0 +1,24 @@
+{
+  "name": "bitkub-line-crypto-noti",
+  "version": "1.0.0",
+  "description": "bitkub-line-crypto-noti",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxoja/bitkub-line-crypto-noti.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxoja/bitkub-line-crypto-noti/issues"
+  },
+  "homepage": "https://github.com/maxoja/bitkub-line-crypto-noti#readme",
+  "dependencies": {
+    "bitkub": "^1.0.2",
+    "coingecko-api": "^1.0.10",
+    "technicalindicators": "^3.1.0"
+  }
+}
