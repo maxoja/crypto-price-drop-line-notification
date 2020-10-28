@@ -1,20 +1,14 @@
 const LINEBot = require('line-messaging')
-require('dotenv').config({ path: __dirname + '/.env' })
+const secrets = require('./secrets')
 
-const bot = LINEBot.Client({
-  channelID: process.env.LINE_CHANNEL_ID,
-  channelSecret: process.env.LINE_CHANNEL_SECRET,
-  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN
-})
+const bot = LINEBot.Client(secrets.line)
 
 async function pushMessageToAllUsers(message) {
   const textMessageBuilder = new LINEBot.TextMessageBuilder(message);
-  const numUsers = parseInt(process.env.LINE_NUM_USERS)
-  for (let i = 1; i <= numUsers; i++) {
-    const userId = process.env['LINE_USER_ID_' + i]
+  secrets.userIds.forEach(userId => { 
     console.log('.. Push message to', userId)
-    await bot.pushMessage(userId, textMessageBuilder)
-  }
+    bot.pushMessage(userId, textMessageBuilder)
+  })
 }
 
 if (module === require.main) {
