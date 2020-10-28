@@ -35,15 +35,17 @@ async function evaluateMarket(coinSettings) {
   const highest = Math.max(...pricePoints)
   const lowest = Math.min(...pricePoints)
   const [shrinkTime, shrinkPrices] = shrinkToHourlyData(timePoints, pricePoints)
+  const lowestShrink = Math.min(...shrinkPrices)
   const rsiPoints = ta.RSI.calculate({ period: RSI_PERIOD, values: shrinkPrices.reverse() }).reverse()
   const rsi = rsiPoints[0]
   const percent = latest / highest
 
-  const currentlyOnMinima = lowest == latest
+  const currentlyOnMinima = lowestShrink == latest
   const bearish = percent <= DROP_THRESH
   const belowRsiThresh = rsi <= RSI_THRESH
   console.log('.. Before check rules')
   console.log('.. RSI', rsi, 'PERCENT', percent)
+  console.log('.. Current', latest, 'Lowest', lowestShrink)
   if ((currentlyOnMinima) && bearish && belowRsiThresh) {
     console.log('.. The market pass all criterias')
     console.log('.. Returning result')
