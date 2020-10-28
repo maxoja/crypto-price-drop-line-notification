@@ -1,10 +1,9 @@
-const DROP_THRESH = 0.96 //0.95
-const RSI_THRESH = 35 //55
-const RSI_PERIOD = 14
-
 const CoinGecko = require('coingecko-api');
-const CoinGeckoClient = new CoinGecko();
 const ta = require('technicalindicators');
+const settings = require('./settings')
+
+const {DROP_THRESH, RSI_THRESH, RSI_PERIOD} = settings
+const CoinGeckoClient = new CoinGecko();
 
 function shrinkToHourlyData(timePoints, pricePoints) {
   return timePoints.reduce((acc, t, i) => {
