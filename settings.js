@@ -18,6 +18,9 @@ module.exports = {
 			RSI_THRESH: 35, //55
 			RSI_PERIOD: 14
 		}
-	}
+	},
+
+	consecutiveDelayMinute: 90,
+	noteFilePath: './lastAlertNote.json'
 }
 

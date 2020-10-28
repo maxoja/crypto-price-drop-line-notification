@@ -116,3 +116,5 @@ dist
 .pnp.*
 
 run_log.txt
+
+lastAlertNote.json
