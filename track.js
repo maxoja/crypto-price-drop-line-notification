@@ -46,7 +46,7 @@ async function evaluateMarket(coinSettings) {
   console.log('.. Before check rules')
   console.log('.. RSI', rsi, 'PERCENT', percent)
   console.log('.. Current', latest, 'Lowest', lowestShrink)
-  if ((currentlyOnMinima) && bearish && belowRsiThresh) {
+  if (false || ((currentlyOnMinima) && bearish && belowRsiThresh)) {
     console.log('.. The market pass all criterias')
     console.log('.. Returning result')
     return {
