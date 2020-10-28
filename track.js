@@ -45,6 +45,8 @@ async function evaluateMarket() {
   const currentlyOnMinima = lowest == latest
   const bearish = percent <= DROP_THRESH
   const belowRsiThresh = rsi <= RSI_THRESH
+  console.log('.. Before check rules')
+  console.log('.. RSI', rsi, 'PERCENT', percent)
   if ((currentlyOnMinima) && bearish && belowRsiThresh) {
     console.log('.. The market pass all criterias')
     console.log('.. Returning result')
