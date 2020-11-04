@@ -1,5 +1,6 @@
 const CoinGecko = require('coingecko-api');
 const ta = require('technicalindicators');
+const settings = require('./settings')
 const CoinGeckoClient = new CoinGecko();
 
 function shrinkToHourlyData(timePoints, pricePoints) {
@@ -20,9 +21,9 @@ function shrinkToHourlyData(timePoints, pricePoints) {
 }
 
 async function evaluateMarket(coinSettings) {
-  const {DROP_THRESH, RSI_THRESH, RSI_PERIOD} = coinSettings
+  const { DROP_THRESH, RSI_THRESH, RSI_PERIOD } = coinSettings
   let result = await CoinGeckoClient.coins.fetchMarketChart(coinSettings.id, {
-    days: 1,
+    days: settings.windowSizeInDays,
     vs_currency: 'usd'
   });
   const numDataPoints = result.data.prices.length
